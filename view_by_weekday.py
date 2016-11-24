@@ -1,15 +1,15 @@
-import sqlite3
 import matplotlib.pyplot as plt
 
-dbConn = sqlite3.connect('./database.sqlite')
-cursor = dbConn.cursor()
+ifile = open('./weekday_tripCount','r')
 
-f = open('weekday_tripCount','w')
-
+ofiles = []
+daysCount = []
 for i in range(0,7):
-	cursor.execute('SELECT * FROM trip WHERE strftime(\'%w\', start_date)=\''+str(i)+'\'')
-	trip = cursor.fetchall()
-	plt.bar(i,len(trip))
-	f.write(str(i)+' '+str(len(trip)))
-plt.show()
-f.close()
+	ofiles.append(open('./single_'+str(i)+'_tripCount','w'))
+	daysCount.append(0)
+
+for line in ifile:
+	t = line.split(' ')
+	i = int(t[0])
+	ofiles[i].write(str(daysCount[i])+' '+t[1])
+	daysCount[i]+=1
