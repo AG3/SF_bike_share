@@ -29,9 +29,10 @@ function displayContents(contents) {
     var xCat = []
     var data = []
     var seriesData = []
+    var offset = 2456533
     for (i = 0; i < set.length; i++) {
         t = set[i].split(' ')
-        xCat.push(t[0])
+        xCat.push(t[0]-offset)
         tData.push(t[1])
     }
     console.log(tData)
