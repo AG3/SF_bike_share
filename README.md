@@ -8,7 +8,7 @@ view_by_station.py 		--- Do statistics on each station's trip count of weekday
 ********************************
 
 Output file naming format:
-[col1_name]_[col2_name]_%.[comment]
+[col1_name]_[col2_name]_[etc].[condition]
 
 ********************************
 
@@ -16,3 +16,5 @@ Abbreviation:
 How many trip took place -> tripCount
 Mon,Tue,Wed... -> weekday
 The index of stations -> stationId
+
+julian day offset: 2456533
